@@ -7,20 +7,76 @@
     <title>Hola Mundo</title>
 
     <style>
+        :root {
+            --tinta: #2b2b2b;
+            --papel: #f4ede0;
+            --acento: #e8543f;
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
-            color: #1f2937;
-            text-align: center;
-            padding-top: 100px;
+            background-color: var(--papel);
+            background-image:
+                radial-gradient(rgba(0,0,0,.035) 1px, transparent 1px),
+                radial-gradient(rgba(0,0,0,.025) 1px, transparent 1px);
+            background-size: 22px 22px, 22px 22px;
+            background-position: 0 0, 11px 11px;
+            color: var(--tinta);
+            font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .tarjeta {
+            max-width: 46ch;
+            position: relative;
         }
 
         h1 {
-            color: #2563eb;
+            font-size: clamp(2.5rem, 7vw, 4.25rem);
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin: 0 0 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            left: -4px;
+            right: -4px;
+            bottom: 0.08em;
+            height: 0.45em;
+            background: var(--acento);
+            opacity: 0.35;
+            z-index: -1;
+            transform: skew(-6deg);
         }
 
         p {
-            font-size: 18px;
+            font-size: 1.125rem;
+            margin: 0;
+            color: #4a4a4a;
+        }
+
+        p::before {
+            content: "→ ";
+            color: var(--acento);
+            font-weight: 700;
+        }
+
+        @media (max-width: 500px) {
+            body { padding: 1.5rem; }
         }
     </style>
 </head>
