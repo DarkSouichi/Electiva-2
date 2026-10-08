@@ -1,0 +1,19 @@
+
+name: Notificacion ntfy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  enviar-notificacion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enviar notificacion a ntfy
+        run: |
+          curl -H "Title: Nueva actualizacion en GitHub" \
+               -H "Content-Type: text/plain; charset=utf-8" \
+               -d "Se ha subido codigo a la rama main del repositorio." \
+               https://ntfy.sh/devops-itla
